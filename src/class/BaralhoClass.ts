@@ -15,6 +15,10 @@ export class Baralho {
         return this.cartas
     }
 
+    public getCartaTopo(): Carta {
+        return this.getCartas()[this.getCartas().length - 1]
+    }
+
     public embaralhar(): void {
         let array = this.cartas
 

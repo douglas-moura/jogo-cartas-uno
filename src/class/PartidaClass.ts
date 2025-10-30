@@ -1,13 +1,16 @@
 import { Baralho } from "./BaralhoClass"
+import { Carta } from "./CartaClass"
 import { Jogador } from "./JogadorClass"
 
 export class Partida {
     private ativo: boolean = true
     private jogadores: Jogador[] = []
+    private monte: Baralho
     private primeiroJogador: number = 0
 
     constructor(player: string | null, baralho: Baralho) {
         this.setJogadores(player)
+        this.monte = new Baralho([])
 
         for (let i = 0; i < this.getJogadores().length; i++) {
             for (let j = 0; j < 3; j++) {
@@ -27,11 +30,31 @@ export class Partida {
         return this.jogadores
     }
 
-    public getAtivo(): boolean {
-        return this.ativo
+    public setMonte(monte: Baralho): void {
+        this.monte = monte
+    }
+
+    public AddCartaMonte(carta: Carta): void {
+        const monte = this.getMonte()
+
+        if (!monte) {
+            console.error('Monte não foi inicializado antes de adicionar carta!')
+            return
+        }
+
+        console.log('Carta recebida no monte:', carta)
+        monte.getCartas().push(carta)
+    }
+
+    public getMonte(): Baralho {
+        return this.monte
     }
 
     public setAtivo(ativo: boolean): void {
         this.ativo = ativo
+    }
+
+    public getAtivo(): boolean {
+        return this.ativo
     }
 }

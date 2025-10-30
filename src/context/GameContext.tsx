@@ -8,8 +8,8 @@ interface AppData {
     nome: string | null
     setNome: (nome: string) => void
 
-    partida: Partida | null
-    setPartida: (partida: Partida | null) => void
+    partida: Partida
+    setPartida: (partida: Partida) => void
 
     turno: number
     setTurno: (turno: number) => void
@@ -25,7 +25,7 @@ export const GameContext = createContext<AppData | undefined>(undefined)
 
 export function GameProvider({ children }: { children: ReactNode }) {
     const [nome, setNome] = useState<string | null>(null)
-    const [partida, setPartida] = useState<Partida | null>(null)
+    const [partida, setPartida] = useState<Partida>(new Partida(null, new Baralho([])))
     const [turno, setTurno] = useState(0)
     const [cartas, setCartas] = useState<Carta[]>([
         new Carta(0, '#e7133f','1'),

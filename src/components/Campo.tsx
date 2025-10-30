@@ -1,13 +1,20 @@
 import { View, StyleSheet } from "react-native"
 import { Jogador as JogadorClass } from "../class/JogadorClass"
 import { Carta as CartaClass } from "../class/CartaClass"
+import { contexto } from "../context/GameContext"
 import Jogador from "./Jogador"
 import Carta from "./Carta"
+import { useEffect, useState } from "react"
+import { Baralho } from "../class/BaralhoClass"
 
 export default function Campo({ jogadores }: { jogadores: JogadorClass[] }) {
-    function receberId(id: number | null) {
-        
-    }
+    const { partida } = contexto()
+    const [monteAtual, setMonteAtual] = useState<Baralho>(partida.getMonte())
+    function receberId(id: number | null) {}
+
+    useEffect(() => {
+
+    }, [monteAtual])
     
     return (
         <View style={styles.campo}>
@@ -20,9 +27,11 @@ export default function Campo({ jogadores }: { jogadores: JogadorClass[] }) {
                 </View>
             ))}
             <View style={styles.monte}>
-                <View style={{ transform: [{ rotate: `${Math.floor(Math.random() * 100) - 50}deg` }] }}>
-                    <Carta cartaInfos={new CartaClass(0, '#fff', '5')} cartaSelecionada={receberId} />
-                </View>
+                {partida?.getMonte()?.getCartas().map((carta, index) => (
+                    <View style={{ transform: [{ rotate: `${Math.floor(Math.random() * 100) - 50}deg` }] }}>
+                        <Carta cartaInfos={carta ?? new CartaClass(0, '#fff','')} cartaSelecionada={receberId} />
+                    </View>
+                ))}
             </View>
         </View>
     )

@@ -41,17 +41,6 @@ export class Jogador {
         this.mao.push(baralho.getCartas().pop()!)
     }
 
-    public baixarCarta(idCarta: number): Carta | null {
-        if (idCarta >= 0 && idCarta < this.getMao().length) {
-            return this.mao.splice(idCarta, 1)[0]
-        }
-        return null
-    }
-
-    public passarVez(): void {
-        // Lógica para passar a vez
-    }
-
     public declararUNO(): void {
         // Lógica para declarar UNO
     }
