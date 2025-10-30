@@ -1,12 +1,18 @@
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native"
 import { contexto } from "../../context/GameContext"
-import { useState } from "react"
+import { useEffect } from "react"
+import { Baralho } from "../../class/BaralhoClass"
+import { Partida } from "../../class/PartidaClass"
 
 export default function FormNomeJogador({ navigation }: any) {
-    const { nome, setNome, setPartida } = contexto()
+    const { nome, partida, baralho, cartas, setNome, setPartida, setCartas, setBaralho } = contexto()
     
     const iniciarPartida = () => {
-        setPartida(true)
+        const novoBaralho = new Baralho(cartas)
+        novoBaralho.embaralhar()
+        setBaralho(novoBaralho)
+        setPartida(new Partida(nome, novoBaralho as Baralho))
+        partida?.setAtivo(true)
         navigation.navigate('Partida')
     }
 

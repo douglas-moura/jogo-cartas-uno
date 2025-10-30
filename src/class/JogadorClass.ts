@@ -1,7 +1,7 @@
 import { Baralho } from "./BaralhoClass"
 import { Carta } from "./CartaClass"
 
-export class JogadorClass {
+export class Jogador {
     private nome: string
     private mao: Carta[] = []
 
@@ -25,10 +25,10 @@ export class JogadorClass {
         this.mao = mao
     }
 
-    public comprarCarta(baralho: Baralho): void {
+    public comprarCarta(baralho: Baralho | null): void {
+        if (!baralho || baralho.getCartas().length === 0) return
+        //console.log("CARTA COMPRADA: ", baralho.getCartas())
         this.mao.push(baralho.getCartas().pop()!)
-        console.log('MÃO:', this.getNome(), this.mao)
-        console.log('BARALHO:', baralho.getCartas())
     }
 
     public baixarCarta(idCarta: number): Carta | null {
