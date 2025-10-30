@@ -5,6 +5,9 @@ import Jogador from "./Jogador"
 import Carta from "./Carta"
 
 export default function Campo({ jogadores }: { jogadores: JogadorClass[] }) {
+    function receberId(id: number | null) {
+        
+    }
     
     return (
         <View style={styles.campo}>
@@ -18,7 +21,7 @@ export default function Campo({ jogadores }: { jogadores: JogadorClass[] }) {
             ))}
             <View style={styles.monte}>
                 <View style={{ transform: [{ rotate: `${Math.floor(Math.random() * 100) - 50}deg` }] }}>
-                    <Carta cartaInfos={new CartaClass(0, '#fff', '5')} />
+                    <Carta cartaInfos={new CartaClass(0, '#fff', '5')} cartaSelecionada={receberId} />
                 </View>
             </View>
         </View>

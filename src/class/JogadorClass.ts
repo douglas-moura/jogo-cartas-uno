@@ -2,11 +2,21 @@ import { Baralho } from "./BaralhoClass"
 import { Carta } from "./CartaClass"
 
 export class Jogador {
+    private id: number
     private nome: string
     private mao: Carta[] = []
 
-    constructor(nome: string) {
+    constructor(id: number, nome: string) {
+        this.id = id
         this.nome = nome
+    }
+
+    public setId(id: number): void {
+        this.id = id
+    }
+
+    public getId(): number {
+        return this.id
     }
 
     public getNome(): string {

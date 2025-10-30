@@ -22,14 +22,6 @@ export default function HomeScreen() {
                     <Text>Partida</Text>
                     <Text>Vez: {turno}</Text>
                     <Campo jogadores={partida.getJogadores()} />
-                    {/* Baralho */}
-                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: 100, gap: 8 }}>
-                        {baralho.getCartas().map((carta, index) => (
-                            <View key={index}>
-                                <Carta cartaInfos={carta} />
-                            </View>
-                        ))}
-                    </View>
                 </SafeAreaView>
             )
         } else {

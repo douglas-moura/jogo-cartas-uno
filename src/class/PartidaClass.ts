@@ -17,10 +17,10 @@ export class Partida {
     }
 
     public setJogadores(player: string | null): void {
-        this.jogadores[0] = new Jogador(player ?? "Jogador 1")
-        this.jogadores[1] = new Jogador("Jogador 2")
-        this.jogadores[2] = new Jogador("Jogador 3")
-        this.jogadores[3] = new Jogador("Jogador 4")
+        this.jogadores[0] = new Jogador(0, player ?? "Jogador 1")
+        this.jogadores[1] = new Jogador(1, "Jogador 2")
+        this.jogadores[2] = new Jogador(2, "Jogador 3")
+        this.jogadores[3] = new Jogador(3, "Jogador 4")
     }
 
     public getJogadores(): Jogador[] {
