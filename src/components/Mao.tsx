@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, Pressable } from "react-native"
 import { Baralho } from "../class/BaralhoClass"
-import { Carta as CardClass } from "../class/CartaClass"
 import { useEffect, useState } from "react"
 import { contexto } from "../context/GameContext"
 import Carta from "./Carta"

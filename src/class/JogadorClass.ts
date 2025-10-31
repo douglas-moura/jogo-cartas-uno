@@ -1,5 +1,4 @@
 import { Baralho } from "./BaralhoClass"
-import { Carta } from "./CartaClass"
 
 export class Jogador {
     private id: number

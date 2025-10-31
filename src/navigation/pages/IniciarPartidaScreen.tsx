@@ -1,6 +1,5 @@
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native"
 import { contexto } from "../../context/GameContext"
-import { useEffect } from "react"
 import { Baralho } from "../../class/BaralhoClass"
 import { Partida } from "../../class/PartidaClass"
 

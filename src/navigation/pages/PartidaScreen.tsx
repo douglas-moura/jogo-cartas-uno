@@ -2,7 +2,6 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import { View, Text, StyleSheet } from "react-native"
 import { contexto } from "../../context/GameContext"
 import Campo from "../../components/Campo"
-import Carta from "../../components/Carta"
 
 export default function HomeScreen() {
     const { nome, partida, baralho, turno } = contexto()

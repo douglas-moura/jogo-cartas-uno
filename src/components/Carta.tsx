@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable } from "react-native"
+import { Text, StyleSheet, Pressable } from "react-native"
 import { Carta as CartaClass } from "../class/CartaClass"
 
 export default function Carta({ cartaInfos, cartaSelecionada }: { cartaInfos: CartaClass, cartaSelecionada: (id: number | null) => void }) {

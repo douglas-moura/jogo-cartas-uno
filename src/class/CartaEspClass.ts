@@ -1,6 +1,6 @@
-import { CartaClass } from "./CartaClass"
+import { Carta } from "./CartaClass"
 
-export class CartaNumClass extends CartaClass {
+export class CartaNumClass extends Carta {
     private efeito: any
 
     constructor(id:number, cor: string, valor: string) {
