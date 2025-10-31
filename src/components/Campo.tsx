@@ -10,11 +10,12 @@ import { Baralho } from "../class/BaralhoClass"
 export default function Campo({ jogadores }: { jogadores: JogadorClass[] }) {
     const { partida } = contexto()
     const [monteAtual, setMonteAtual] = useState<Baralho>(partida.getMonte())
+    const [cartaRecebidaId, setCartaRecebidaId] = useState<number>(999)
     function receberId(id: number | null) {}
 
     useEffect(() => {
-
-    }, [monteAtual])
+        
+    }, [monteAtual, cartaRecebidaId])
     
     return (
         <View style={styles.campo}>
@@ -26,9 +27,10 @@ export default function Campo({ jogadores }: { jogadores: JogadorClass[] }) {
                     <Jogador jogadorClass={jogador} id={index} />
                 </View>
             ))}
+            {/* Monte de cartas */}
             <View style={styles.monte}>
                 {partida?.getMonte()?.getCartas().map((carta, index) => (
-                    <View style={{ transform: [{ rotate: `${Math.floor(Math.random() * 100) - 50}deg` }] }}>
+                    <View key={index} style={{ position: 'absolute', transform: [{ rotate: `${Math.floor(carta.getId() * 100) - 50}deg` }] }}>
                         <Carta cartaInfos={carta ?? new CartaClass(0, '#fff','')} cartaSelecionada={receberId} />
                     </View>
                 ))}

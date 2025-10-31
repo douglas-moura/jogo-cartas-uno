@@ -53,8 +53,6 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
     useEffect(() => {
         if (turno >= 4) setTurno(0)
-        console.log('BARALHO CONTEXTO: ', baralho)
-        
     }, [turno])
 
     return (

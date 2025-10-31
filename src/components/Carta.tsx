@@ -1,10 +1,9 @@
 import { View, Text, StyleSheet, Pressable } from "react-native"
-import { Carta } from "../class/CartaClass"
-import { useState } from "react"
+import { Carta as CartaClass } from "../class/CartaClass"
 
-export default function JogadorMao({ idCarta, cartaInfos, cartaSelecionada }: { idCarta?: number, cartaInfos: Carta, cartaSelecionada: (id: number | null) => void }) {
+export default function Carta({ cartaInfos, cartaSelecionada }: { cartaInfos: CartaClass, cartaSelecionada: (id: number | null) => void }) {
     return (
-        <Pressable style={[styles.cartaContainer, { backgroundColor: cartaInfos.getCor() ?? '#fff' }]} onPress={() => cartaSelecionada(idCarta ?? 99)}>
+        <Pressable style={[styles.cartaContainer, { backgroundColor: cartaInfos.getCor() ?? '#fff' }]} onPress={() => cartaSelecionada(cartaInfos.getId() ?? 99)}>
             <Text>{ cartaInfos.getValor() ?? '?' }</Text>
         </Pressable>
     )

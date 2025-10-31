@@ -4,7 +4,7 @@ import { Carta } from "./CartaClass"
 export class Jogador {
     private id: number
     private nome: string
-    private mao: Carta[] = []
+    private mao: Baralho = new Baralho([])
 
     constructor(id: number, nome: string) {
         this.id = id
@@ -27,18 +27,17 @@ export class Jogador {
         this.nome = nome
     }
 
-    public getMao(): Carta[] {
+    public getMao(): Baralho {
         return this.mao
     }
 
-    public setMao(mao: Carta[]): void {
+    public setMao(mao: Baralho): void {
         this.mao = mao
     }
 
     public comprarCarta(baralho: Baralho | null): void {
         if (!baralho || baralho.getCartas().length === 0) return
-        //console.log("CARTA COMPRADA: ", baralho.getCartas())
-        this.mao.push(baralho.getCartas().pop()!)
+        this.mao.getCartas().push(baralho.getCartas().pop()!)
     }
 
     public declararUNO(): void {

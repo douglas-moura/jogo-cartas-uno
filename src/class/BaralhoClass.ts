@@ -19,6 +19,12 @@ export class Baralho {
         return this.getCartas()[this.getCartas().length - 1]
     }
 
+    public removerCarta(id: number): void {
+        const cartas = this.getCartas()
+        cartas.splice(id, 1)
+        this.setCartas(cartas)
+    }
+
     public embaralhar(): void {
         let array = this.cartas
 

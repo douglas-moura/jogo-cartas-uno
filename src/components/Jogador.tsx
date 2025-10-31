@@ -1,16 +1,17 @@
 import { View, Text, StyleSheet, Pressable } from "react-native"
 import { Jogador as JogadorClass } from "../class/JogadorClass"
+import { Baralho } from "../class/BaralhoClass"
 import { contexto } from "../context/GameContext"
 import { useState } from "react"
 import Mao from "./Mao"
 
 export default function Jogador({ jogadorClass, id }: { jogadorClass: JogadorClass, id: number }) {
     const { baralho, turno, setTurno } = contexto()
-    const [mao, setMao] = useState(jogadorClass.getMao())
+    const [mao, setMao] = useState<Baralho>(jogadorClass.getMao())
 
     function comprarCarta() {
         jogadorClass.comprarCarta(baralho)
-        setMao([...jogadorClass.getMao()]) // força re-render
+        setMao(new Baralho(jogadorClass.getMao().getCartas())) // força re-render
     }
     
     return (

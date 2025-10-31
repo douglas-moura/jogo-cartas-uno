@@ -36,13 +36,10 @@ export class Partida {
 
     public AddCartaMonte(carta: Carta): void {
         const monte = this.getMonte()
-
         if (!monte) {
             console.error('Monte não foi inicializado antes de adicionar carta!')
             return
         }
-
-        console.log('Carta recebida no monte:', carta)
         monte.getCartas().push(carta)
     }
 

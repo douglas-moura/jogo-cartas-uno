@@ -32,7 +32,4 @@ export class Carta {
     public setValor(valor: string): void {
         this.valor = valor
     }
-
-    public baixarCarta(idCarta: number): void {
-    }
 }
