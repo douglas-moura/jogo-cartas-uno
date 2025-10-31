@@ -20,7 +20,6 @@ export default function HomeScreen() {
             return (
                 <SafeAreaView style={styles.paginaContainer} edges={['top', 'bottom']}>
                     <Text>Partida</Text>
-                    <Text>Vez: {turno}</Text>
                     <Campo jogadores={partida.getJogadores()} />
                 </SafeAreaView>
             )

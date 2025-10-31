@@ -5,14 +5,18 @@ import { Baralho } from "../../class/BaralhoClass"
 import { Partida } from "../../class/PartidaClass"
 
 export default function FormNomeJogador({ navigation }: any) {
-    const { nome, partida, baralho, cartas, setNome, setPartida, setCartas, setBaralho } = contexto()
+    const { nome, partida, cartas, setNome, setPartida, setCartas, setBaralho } = contexto()
     
     const iniciarPartida = () => {
         const novoBaralho = new Baralho(cartas)
         novoBaralho.embaralhar()
         setBaralho(novoBaralho)
-        setPartida(new Partida(nome, novoBaralho as Baralho))
-        partida?.setAtivo(true)
+
+        const novaPartida = new Partida(nome, novoBaralho as Baralho)
+        novaPartida.AddCartaMonte(novoBaralho.getCartaTopo(), novoBaralho)
+        novaPartida.setAtivo(true)
+        setPartida(novaPartida)
+
         navigation.navigate('Partida')
     }
 

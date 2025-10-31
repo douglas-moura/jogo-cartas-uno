@@ -1,21 +1,19 @@
 import { View, StyleSheet } from "react-native"
 import { Jogador as JogadorClass } from "../class/JogadorClass"
 import { Carta as CartaClass } from "../class/CartaClass"
+import { Baralho } from "../class/BaralhoClass"
 import { contexto } from "../context/GameContext"
+import { useEffect, useState } from "react"
 import Jogador from "./Jogador"
 import Carta from "./Carta"
-import { useEffect, useState } from "react"
-import { Baralho } from "../class/BaralhoClass"
 
 export default function Campo({ jogadores }: { jogadores: JogadorClass[] }) {
     const { partida } = contexto()
     const [monteAtual, setMonteAtual] = useState<Baralho>(partida.getMonte())
     const [cartaRecebidaId, setCartaRecebidaId] = useState<number>(999)
-    function receberId(id: number | null) {}
+    function receberId(id: number | null) {}    
 
-    useEffect(() => {
-        
-    }, [monteAtual, cartaRecebidaId])
+    useEffect(() => {}, [monteAtual, cartaRecebidaId])
     
     return (
         <View style={styles.campo}>

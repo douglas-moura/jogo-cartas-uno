@@ -34,13 +34,16 @@ export class Partida {
         this.monte = monte
     }
 
-    public AddCartaMonte(carta: Carta): void {
+    public AddCartaMonte(carta: Carta, origem: Baralho): void {
         const monte = this.getMonte()
+        
         if (!monte) {
             console.error('Monte não foi inicializado antes de adicionar carta!')
             return
         }
+
         monte.getCartas().push(carta)
+        origem.removerCarta(carta.getId())
     }
 
     public getMonte(): Baralho {

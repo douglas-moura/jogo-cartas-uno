@@ -19,9 +19,13 @@ export class Baralho {
         return this.getCartas()[this.getCartas().length - 1]
     }
 
-    public removerCarta(id: number): void {
+    public removerCarta(cartaIdGlobal: number): void {
         const cartas = this.getCartas()
-        cartas.splice(id, 1)
+        for (let i = 0; i < cartas.length; i++) {
+            if (cartas[i].getId() == cartaIdGlobal) {
+                cartas.splice(i, 1)
+            }
+        }
         this.setCartas(cartas)
     }
 

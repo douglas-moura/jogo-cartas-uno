@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet, Pressable } from "react-native"
+import { Baralho } from "../class/BaralhoClass"
 import { Carta as CardClass } from "../class/CartaClass"
 import { useEffect, useState } from "react"
 import { contexto } from "../context/GameContext"
 import Carta from "./Carta"
-import { Baralho } from "../class/BaralhoClass"
 
 export default function Mao({ cartas, jogadorId }: { cartas: Baralho, jogadorId: number }) {
     const [selecionada, setSelecionada] = useState<number | null>(null)
@@ -15,7 +15,7 @@ export default function Mao({ cartas, jogadorId }: { cartas: Baralho, jogadorId:
     }
 
     function baixarCarta(id: number, mao: Baralho) {
-        partida!.AddCartaMonte(mao.getCartas()[id])
+        partida!.AddCartaMonte(mao.getCartas()[id], mao)
         partida.getJogadores()[jogadorId].getMao().removerCarta(id)
         setTurno(turno + 1) 
     }
